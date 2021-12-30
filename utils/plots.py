@@ -358,7 +358,7 @@ def plot_labels(labels, names=(), save_dir=Path('')):
     labels[:, 1:] = xywh2xyxy(labels[:, 1:]) * 2000
     img = Image.fromarray(np.ones((2000, 2000, 3), dtype=np.uint8) * 255)
     for cls, *box in labels[:1000]:
-        ImageDraw.Draw(img).rectangle(box, width=1, outline=colors(cls))  # plot
+        ImageDraw.Draw(img).rectangle(box, width=1, fill=(0,0,0),outline=colors(cls))  # plot
     ax[1].imshow(img)
     ax[1].axis('off')
 
